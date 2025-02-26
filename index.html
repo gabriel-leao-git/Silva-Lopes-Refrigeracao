@@ -19,6 +19,7 @@
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
+        <button id="theme-toggle">Mudar Tema</button>
     </header>
 
     <section id="hero">
@@ -38,19 +39,33 @@
     <section id="servicos">
         <h2>Nossos Serviços</h2>
         <ul>
-            <li>Instalação de Ar-Condicionado</li>
-            <li>Manutenção Preventiva</li>
-            <li>Reparo e Limpeza</li>
+            <li>
+                Instalação de Ar-Condicionado
+                <button class="toggle-info"> Mais Info</button>
+                <p class="info" style="display: none;">Detalhes sobre a instalação de ar-condicionado</p>
+            </li>
+            <li>
+                Manutenção Preventiva
+                <button class="toggle-info">Mais Info</button>
+                <p class="info" style="display: none;">Detalhes sobre a manutenção preventiva</p>
+            </li>
+            <li>
+                Reparo e Limpeza
+                <button class="toggle-info">Mais Info</button>
+                <p class="info" style="display: none;">Detalhes sobre reparo e limpeza</p>
+            </li>
         </ul>
     </section>
 
     <section id="galeria">
         <h2>Galeria de Trabalhos</h2>
         <div class="gallery">
-            <img src="imagens/ar-de-parede.jpeg" alt="Serviço 1">
-            <img src="imagens/arcond-redondo.jpeg" alt="Serviço 2">
-            <img src="imagens/dois-ar-quadrado.jpeg" alt="Serviço 3">
+            <img src="imagens/ar-de-parede.jpeg" alt="Serviço 1" class="slider">
+            <img src="imagens/arcond-redondo.jpeg" alt="Serviço 2" class="slider" style="display: none;">
+            <img src="imagens/dois-ar-quadrado.jpeg" alt="Serviço 3" class="slider" style="display: none;">
         </div>
+        <button id="prev">Anterior</button>
+        <button id="next">Próximo</button>
     </section>
 
     <section id="contato">
