@@ -12,6 +12,9 @@ body {
     padding: 0;
     background: var(--cor-fundo);
     color: #222;
+
+    opacity: 0; /* Começar invisível */
+    transition: opacity 1s; /* Suaviza a transição */
 }
 
 header {
@@ -149,4 +152,14 @@ nav ul li {
 
 #hero {
     padding: 50px 20px;
+}
+
+.dark-theme {
+    background: #222;
+    color: #e6f2ff;
+}
+
+.dark-theme header, 
+.dark-theme footer {
+    background: #003366;
 }
