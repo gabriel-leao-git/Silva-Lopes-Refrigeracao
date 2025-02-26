@@ -109,3 +109,7 @@ footer {
     text-align: center;
     padding: 20px;
 }
+
+footer p {
+    color: white;
+}
