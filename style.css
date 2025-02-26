@@ -83,6 +83,10 @@ section > h2, p {
     transform: scale(1.1);
 }
 
+.imagem {
+    border-radius: 10px;
+}
+
 #contato p {
     font-size: 1.2em;
     font-weight: bold;
