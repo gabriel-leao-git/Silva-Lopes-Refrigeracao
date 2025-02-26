@@ -12,7 +12,6 @@ body {
     padding: 0;
     background: var(--cor-fundo);
     color: #222;
-
     opacity: 0; /* Começar invisível */
     transition: opacity 1s; /* Suaviza a transição */
 }
@@ -22,6 +21,7 @@ header {
     color: white;
     padding: 20px;
     text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra */
 }
 
 h1 {
@@ -65,7 +65,7 @@ nav ul li a:hover {
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s, transform 0.3s;
-    box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra do botão */
 }
 
 .cta:hover {
@@ -80,6 +80,9 @@ main {
 section {
     padding: 50px 20px;
     text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra das seções */
+    border-radius: 8px; /* Bordas arredondadas */
+    background: white; /* Fundo branco para seções */
 }
 
 section > h2, p {
@@ -105,6 +108,7 @@ section > h2, p {
 
 .imagem {
     border-radius: 10px;
+    border: 2px solid var(--cor-principal); /* Borda na imagem */
 }
 
 #contato p {
@@ -140,26 +144,20 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    .gallery img {
-        width: 90%;
+    header, footer {
+        padding: 10px; /* Reduz o padding para telas menores */
     }
-}
 
-nav ul li {
-    display: block; /*Bloco para telas menores*/
-    margin: 10px;
-}
+    .gallery img {
+        width: 90%; /* Imagens maiores em telas pequenas */
+    }
 
-#hero {
-    padding: 50px 20px;
-}
+    nav ul li {
+        display: block; /* Bloco para telas menores */
+        margin: 10px;
+    }
 
-.dark-theme {
-    background: #222;
-    color: #e6f2ff;
-}
-
-.dark-theme header, 
-.dark-theme footer {
-    background: #003366;
+    #hero {
+        padding: 50px 20px; /* Ajusta o padding para telas menores */
+    }
 }
