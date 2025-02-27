@@ -84,7 +84,7 @@ section {
     text-align: center;
 }
 
-section h2 {
+section h2, p {
     color: #003366;
 }
 
