@@ -1,64 +1,79 @@
 @charset "UTF-8";
 
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background: #e6f2ff;
-    color: #222;
-    overflow-x: hidden; /* Impede a rolagem horizontal */
+    box-sizing: border-box;
 }
 
+/* Ajuste para evitar barra de rolagem horizontal */
+html, body {
+    font-family: Arial, sans-serif;
+    background: #e6f2ff;
+    color: #222;
+    width: 100%;
+    overflow-x: hidden; /* Impede rolagem lateral */
+}
+
+/* HEADER */
 header {
     background: #358BCF;
     color: white;
-    padding: 30px;
+    padding: 20px;
     text-align: center;
     box-shadow: 1px 5px 15px black;
+    position: relative;
 }
 
 h1 {
-    color: #fff;
     font-size: 1.8em;
     margin: 0;
 }
 
-nav ul {
+/* MENU */
+.menu-toggle {
+    display: none;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    z-index: 1000;
+}
+
+/* Menu padrão para telas grandes */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     list-style: none;
-    padding: 0;
-    text-align: center;
-    margin: 0;
 }
 
-nav ul li {
+/* Itens do menu */
+.nav-links li {
     display: inline-block;
-    margin: 0 15px;
 }
 
-nav ul li a {
+.nav-links li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    display: inline-block;
+    padding: 10px;
     transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-nav ul li a:hover {
+.nav-links li a:hover {
     color: #ffcc00;
     transform: scale(1.1);
 }
 
 /* HERO */
-.textohero {
-    color: white;
-    text-align: center;
-    padding: 80px 20px;
-}
-
 #hero {
     width: 100%;
-    height: 500px;
-    margin-top: 10px;
+    height: auto;
+    padding: 80px 20px;
+    text-align: center;
 }
 
 #hero h2 {
@@ -93,20 +108,21 @@ section {
     text-align: center;
 }
 
-section h2, p {
+section h2, section p {
     color: #003366;
 }
 
+/* GALERIA */
 .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 15px;
 }
 
 .gallery img {
-    width: 30%;
-    max-width: 250px;
-    margin: 10px;
+    width: 100%;
+    max-width: 300px;
     border-radius: 10px;
     transition: transform 0.3s;
 }
@@ -115,6 +131,7 @@ section h2, p {
     transform: scale(1.1);
 }
 
+/* CONTATO */
 #contato p {
     font-size: 1.2em;
     font-weight: bold;
@@ -129,7 +146,7 @@ section h2, p {
     border-radius: 5px;
     display: inline-block;
     margin-top: 10px;
-    transition: 0.3s, transform 0.3s;
+    transition: 0.3s;
 }
 
 #contato a:hover {
@@ -148,6 +165,7 @@ footer {
 
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
+    /* Ajuste do header */
     header {
         padding: 15px;
     }
@@ -156,17 +174,36 @@ footer {
         font-size: 1.5em;
     }
 
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    nav ul li {
+    /* Exibir o ícone do menu hamburguer */
+    .menu-toggle {
         display: block;
-        margin: 0;
     }
 
+    /* Esconder o menu padrão */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #000;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        z-index: 999;
+    }
+
+    /* Mostrar menu ao ativar */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* HERO */
     #hero {
         padding: 50px 10px;
     }
@@ -180,73 +217,8 @@ footer {
         padding: 10px 15px;
     }
 
+    /* Galeria */
     .gallery img {
         width: 90%;
-        max-width: 100%;
-    }
-}
-
-.menu-toggle {
-    display: none; /* Ocultar o ícone do menu hamburguer por padrão */
-    font-size: 2em;
-    color: white;
-    cursor: pointer;
-    position: fixed; /* Alterado de absolute para fixed */
-    top: 20px; /* Ajuste de posição para garantir que o ícone fique na parte superior */
-    left: 20px;
-    z-index: 1000; /* Garantir que o ícone fique acima dos outros elementos */
-}
-
-.nav-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    list-style: none;
-}
-
-.nav-links li {
-    display: inline-block;
-}
-
-.nav-links li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-.nav-links li a:hover {
-    color: #ffcc00;
-    transform: scale(1.1);
-}
-
-@media (max-width: 768px) {
-    /* Exibir o ícone do menu hamburguer */
-    .menu-toggle {
-        display: block; /* Exibir o ícone hamburguer no mobile */
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background: #000;
-        position: absolute;
-        top: 60px; /* Ajuste para garantir que o menu fique abaixo do header */
-        left: 0;
-        width: 100%;
-        padding: 10px;
-        border-radius: 5px;
-        z-index: 999;
-        box-sizing: border-box; /* Adicionado para garantir que o menu se ajuste corretamente */
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        text-align: left;
-        padding: 10px;
     }
 }
