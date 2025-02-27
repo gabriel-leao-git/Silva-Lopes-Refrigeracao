@@ -9,11 +9,11 @@ body {
 }
 
 header {
-    background: #000000;
+    background: #358BCF;
     color: white;
-    padding: 20px;
+    padding: 30px;
     text-align: center;
-    box-shadow: 3px 2px 5px black;
+    box-shadow: 1px 5px 15px black;
 }
 
 h1 {
@@ -48,11 +48,16 @@ nav ul li a:hover {
 }
 
 /* HERO */
-#hero {
-    background: url('hero.jpg') no-repeat center center/cover;
+.textohero {
     color: white;
     text-align: center;
     padding: 80px 20px;
+}
+
+#hero {
+    width: 100%;
+    height: 500px;
+    margin-top: 10px;
 }
 
 #hero h2 {
@@ -89,14 +94,6 @@ section {
 
 section h2, p {
     color: #003366;
-}
-
-.imagem {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
 }
 
 .gallery {
@@ -185,5 +182,71 @@ footer {
     .gallery img {
         width: 90%;
         max-width: 100%;
+    }
+}
+
+.menu-toggle {
+    display: none; /* Ocultar o ícone do menu hamburguer por padrão */
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 20px;
+}
+
+/* Menu padrão para telas grandes */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+}
+
+/* Itens do menu */
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.nav-links li a:hover {
+    color: #ffcc00;
+    transform: scale(1.1);
+}
+
+/* RESPONSIVIDADE - Ajustar para telas menores */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Exibir o ícone ☰ apenas no mobile */
+    }
+
+    /* Esconder o menu padrão e ativar somente no clique */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #000;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 200px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .nav-links li {
+        text-align: left;
+        padding: 10px;
+    }
+
+    /* Mostrar menu ao ativar */
+    .nav-links.active {
+        display: flex;
     }
 }
