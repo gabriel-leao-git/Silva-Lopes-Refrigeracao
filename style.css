@@ -88,6 +88,14 @@ section h2 {
     color: #003366;
 }
 
+.imagem {
+    width: 100%;
+    max-width: 1300px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 .gallery {
     display: flex;
     flex-wrap: wrap;
