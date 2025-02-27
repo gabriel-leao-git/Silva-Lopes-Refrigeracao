@@ -6,6 +6,7 @@ body {
     padding: 0;
     background: #e6f2ff;
     color: #222;
+    overflow-x: hidden; /* Impede a rolagem horizontal */
 }
 
 header {
@@ -190,12 +191,12 @@ footer {
     font-size: 2em;
     color: white;
     cursor: pointer;
-    position: absolute;
-    top: 15px;
+    position: fixed; /* Alterado de absolute para fixed */
+    top: 20px; /* Ajuste de posição para garantir que o ícone fique na parte superior */
     left: 20px;
+    z-index: 1000; /* Garantir que o ícone fique acima dos outros elementos */
 }
 
-/* Menu padrão para telas grandes */
 .nav-links {
     display: flex;
     justify-content: center;
@@ -203,7 +204,6 @@ footer {
     list-style: none;
 }
 
-/* Itens do menu */
 .nav-links li {
     display: inline-block;
 }
@@ -221,32 +221,32 @@ footer {
     transform: scale(1.1);
 }
 
-/* RESPONSIVIDADE - Ajustar para telas menores */
 @media (max-width: 768px) {
+    /* Exibir o ícone do menu hamburguer */
     .menu-toggle {
-        display: block; /* Exibir o ícone ☰ apenas no mobile */
+        display: block; /* Exibir o ícone hamburguer no mobile */
     }
 
-    /* Esconder o menu padrão e ativar somente no clique */
     .nav-links {
         display: none;
         flex-direction: column;
         background: #000;
         position: absolute;
-        top: 60px;
+        top: 60px; /* Ajuste para garantir que o menu fique abaixo do header */
         left: 0;
-        width: 200px;
+        width: 100%;
         padding: 10px;
         border-radius: 5px;
+        z-index: 999;
+        box-sizing: border-box; /* Adicionado para garantir que o menu se ajuste corretamente */
+    }
+
+    .nav-links.active {
+        display: flex;
     }
 
     .nav-links li {
         text-align: left;
         padding: 10px;
-    }
-
-    /* Mostrar menu ao ativar */
-    .nav-links.active {
-        display: flex;
     }
 }
